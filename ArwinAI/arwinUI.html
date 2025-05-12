@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facial Recognition Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: #2c3e50;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 20px;
+      text-align: center;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid #34495e;
+    }
+    .main {
+      margin-left: 220px;
+      padding: 20px;
+    }
+    .header {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .card p {
+      margin: 0;
+    }
+    .video-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Facial Dash</h2>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#scan">Scan Face</a>
+    <a href="#attendance">Attendance Logs</a>
+    <a href="#settings">Settings</a>
+  </div>
+  <div class="main">
+    <div class="header">
+      <h1>Welcome to the Facial Recognition Dashboard</h1>
+      <p>Monitor and manage employee recognition in real time</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Total Employees</h3>
+        <p>58</p>
+      </div>
+      <div class="card">
+        <h3>Checked In</h3>
+        <p>42</p>
+      </div>
+      <div class="card">
+        <h3>On Break</h3>
+        <p>5</p>
+      </div>
+      <div class="card">
+        <h3>Not Recognized</h3>
+        <p>2</p>
+      </div>
+    </div>
+
+    <div class="video-container">
+      <h2>Live Camera Feed</h2>
+      <video id="video" autoplay muted></video>
+    </div>
+  </div>
+
+  <script>
+    // Access the webcam
+    const video = document.getElementById('video');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => {
+        console.error("Error accessing the camera:", err);
+      });
+  </script>
+</body>
+</html>

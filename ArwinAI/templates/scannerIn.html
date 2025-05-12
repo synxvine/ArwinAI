@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+</head>
+<body>
+    <h2>Face Recognition Login</h2>
+    
+    <video id="video" width="440" height="280" autoplay></video>
+    <br>
+
+    <canvas id="canvas" width="400" height="280" style="display: none;"></canvas>
+    <br>
+
+    <button onclick="login()">LOGIN NOW</button>
+    
+    <p>Don't have an account? <a href="{{ url_for('register_page') }}">Click here to register</a></p>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

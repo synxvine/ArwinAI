@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h3>REGISTER ACCOUNT</h3>
+    
+    <video id="video" width="440" height="280" autoplay></video>
+    <br>
+    
+    <button onclick="capture()">Capture Face</button>
+    <br>
+
+    <canvas id="canvas" width="400" height="280" style="display: none;"></canvas>
+    <br>
+
+    <label for="studentId">Student Id (required):</label>
+    <input type="text" id="studentId" required name="studentId">
+    <br>
+
+    <label for="lastName">Last Name (required):</label>
+    <input type="text" id="lastName" required name="lastName">
+    <br>
+
+    <label for="firstName">First Name (required):</label>
+    <input type="text" id="firstName" required name="firstName">
+    <br>
+
+    <label for="middleName">Middle Name (optional):</label>
+    <input type="text" id="middleName" name="middleName">
+    <br>
+
+    <button onclick="register()">REGISTER</button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
